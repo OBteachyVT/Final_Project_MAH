@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Personal Astrology Report</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>My Astrology Hub 🌌</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="manual-report.html">Generate Report</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="container">
+            <section id="personal-report">
+                <h2 id="reportTitle">Your Personal Planet Astrology Report</h2>
+                <p id="reportIntro"></p>
+
+                <div id="planetPlacements">
+                    <h3>Your Personal Planet Placements:</h3>
+                    <p><strong>Sun Sign:</strong> <span id="sunSign"></span></p>
+                    <p><strong>Moon Sign:</strong> <span id="moonSign"></span></p>
+                    <p><strong>Mercury Sign:</strong> <span id="mercurySign"></span></p>
+                    <p><strong>Venus Sign:</strong> <span id="venusSign"></span></p>
+                    <p><strong>Mars Sign:</strong> <span id="marsSign"></span></p>
+                    <p><strong>Rising Sign (Ascendant):</strong> <span id="risingSign"></span></p>
+                </div>
+
+                <div id="reportInterpretations">
+                    <h3>Interpretations:</h3>
+                    <p id="sunInterpretation"></p>
+                    <p id="moonInterpretation"></p>
+                    <p id="mercuryInterpretation"></p>
+                    <p id="venusInterpretation"></p>
+                    <p id="marsInterpretation"></p>
+                    <p id="risingInterpretation"></p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 My Astrology Hub. OhB, All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const reportTitleElement = document.getElementById('reportTitle');
+            const reportIntroElement = document.getElementById('reportIntro');
+
+            const sunSignElement = document.getElementById('sunSign');
+            const moonSignElement = document.getElementById('moonSign');
+            const mercurySignElement = document.getElementById('mercurySign');
+            const venusSignElement = document.getElementById('venusSign');
+            const marsSignElement = document.getElementById('marsSign');
+            const risingSignElement = document.getElementById('risingSign');
+
+            const sunInterpretationElement = document.getElementById('sunInterpretation');
+            const moonInterpretationElement = document.getElementById('moonInterpretation');
+            const mercuryInterpretationElement = document.getElementById('mercuryInterpretation');
+            const venusInterpretationElement = document.getElementById('venusInterpretation');
+            const marsInterpretationElement = document.getElementById('marsInterpretation');
+            const risingInterpretationElement = document.getElementById('risingInterpretation');
+
+            // Interpretations data
+            const interpretations = {
+                "Sun": {
+                    "Aries": "Your core self is energetic, pioneering, and assertive. You lead with courage and enthusiasm.",
+                    "Taurus": "You are grounded, stable, and value security and comfort. You have a strong connection to the material world.",
+                    "Gemini": "You are curious, communicative, and adaptable. You enjoy learning and sharing information.",
+                    "Cancer": "You are nurturing, emotional, and deeply connected to home and family. You seek security and comfort.",
+                    "Leo": "You are confident, creative, and love to be the center of attention. You express yourself with warmth and generosity.",
+                    "Virgo": "You are analytical, practical, and detail-oriented. You strive for perfection and enjoy helping others.",
+                    "Libra": "You are harmonious, diplomatic, and value balance and fairness. You seek partnership and beauty.",
+                    "Scorpio": "You are intense, passionate, and deeply perceptive. You are drawn to transformation and hidden truths.",
+                    "Sagittarius": "You are adventurous, optimistic, and philosophical. You seek truth and freedom through exploration.",
+                    "Capricorn": "You are disciplined, ambitious, and responsible. You are driven to achieve success and build lasting structures.",
+                    "Aquarius": "You are innovative, independent, and humanitarian. You value freedom and strive for social change.",
+                    "Pisces": "You are compassionate, imaginative, and intuitive. You are sensitive and empathetic, often drawn to spiritual pursuits."
+                },
+                "Moon": {
+                    "Aries": "Emotionally impulsive and direct. You react quickly and assertively.",
+                    "Taurus": "Emotionally stable and comfort-loving. You find security in routine and sensory pleasures.",
+                    "Gemini": "Emotionally adaptable and intellectual. Your feelings are often processed through thought and communication.",
+                    "Cancer": "Deeply emotional and nurturing. You are highly sensitive and find comfort in home and family.",
+                    "Leo": "Emotionally expressive and dramatic. You need recognition and appreciation to feel secure.",
+                    "Virgo": "Emotionally analytical and practical. You express care through service and attention to detail.",
+                    "Libra": "Emotionally balanced and seeks harmony. You need partnership and fairness to feel secure.",
+                    "Scorpio": "Emotionally intense and private. You feel deeply and are drawn to profound experiences.",
+                    "Sagittarius": "Emotionally optimistic and adventurous. You need freedom and new experiences to feel secure.",
+                    "Capricorn": "Emotionally reserved and disciplined. You find security in structure and achievement.",
+                    "Aquarius": "Emotionally detached and intellectual. You value independence and group connections.",
+                    "Pisces": "Emotionally sensitive and empathetic. You are highly intuitive and compassionate, often absorbing others' feelings."
+                },
+                "Mercury": {
+                    "Aries": "Your mind is quick, direct, and pioneering. You communicate assertively.",
+                    "Taurus": "Your mind is practical, deliberate, and values stability. You learn through sensory experience.",
+                    "Gemini": "Your mind is curious, adaptable, and quick-witted. You love to communicate and gather information.",
+                    "Cancer": "Your mind is intuitive, emotional, and remembers well. You communicate with feeling.",
+                    "Leo": "Your mind is creative, confident, and expressive. You communicate with flair and authority.",
+                    "Virgo": "Your mind is analytical, precise, and practical. You communicate with attention to detail and a desire to be helpful.",
+                    "Libra": "Your mind is diplomatic, balanced, and seeks fairness. You communicate with charm and a desire for harmony.",
+                    "Scorpio": "Your mind is deep, penetrating, and investigative. You communicate with intensity and seek hidden truths.",
+                    "Sagittarius": "Your mind is expansive, philosophical, and seeks truth. You communicate with enthusiasm and a broad perspective.",
+                    "Capricorn": "Your mind is disciplined, practical, and strategic. You communicate with authority and a focus on long-term goals.",
+                    "Aquarius": "Your mind is innovative, independent, and humanitarian. You value freedom and strive for social change.",
+                    "Pisces": "Your mind is intuitive, imaginative, and empathetic. You communicate with sensitivity and a fluid, artistic approach."
+                },
+                "Venus": {
+                    "Aries": "You express love and attraction directly and passionately. You are drawn to excitement.",
+                    "Taurus": "You express love and attraction sensually and stably. You value comfort, beauty, and loyalty.",
+                    "Gemini": "You express love and attraction through communication and intellectual connection. You seek variety in relationships.",
+                    "Cancer": "You express love and attraction nurturingly and emotionally. You seek security and deep emotional bonds.",
+                    "Leo": "You express love and attraction dramatically and generously. You enjoy being admired and expressing affection grandly.",
+                    "Virgo": "You express love and attraction through practical service and attention to detail. You are attracted to competence.",
+                    "Libra": "You express love and attraction harmoniously and diplomatically. You seek balance, partnership, and beauty.",
+                    "Scorpio": "You express love and attraction intensely and deeply. You are drawn to profound, transformative connections.",
+                    "Sagittarius": "You express love and attraction adventurously and freely. You seek partners who share your ideals and love exploration.",
+                    "Capricorn": "You express love and attraction reservedly and practically. You seek stable, committed relationships and value status.",
+                    "Aquarius": "You express love and attraction independently and uniquely. You are drawn to unconventional relationships and intellectual connection.",
+                    "Pisces": "You express love and attraction compassionately and idealistically. You are highly empathetic and seek a spiritual connection."
+                },
+                "Mars": {
+                    "Aries": "You assert yourself directly, impulsively, and with great energy. You are a natural leader.",
+                    "Taurus": "You assert yourself steadily and patiently. You are determined and persistent in pursuing your desires.",
+                    "Gemini": "You assert yourself through communication and quick thinking. Your energy is versatile and can be scattered.",
+                    "Cancer": "You assert yourself protectively and emotionally. Your actions are often driven by feelings for loved ones.",
+                    "Leo": "You assert yourself confidently and dramatically. You are motivated by a need for recognition and creative expression.",
+                    "Virgo": "You assert yourself precisely and analytically. Your energy is directed towards practical tasks and service.",
+                    "Libra": "You assert yourself diplomatically and seeks fairness. Your actions are aimed at achieving balance and harmony.",
+                    "Scorpio": "You assert yourself intensely and strategically. Your energy is powerful and focused on deep transformation.",
+                    "Sagittarius": "You assert yourself adventurously and enthusiastically. Your energy is directed towards exploration and philosophical pursuits.",
+                    "Capricorn": "You assert yourself with discipline and ambition. Your energy is directed towards achieving long-term goals and success.",
+                    "Aquarius": "You assert yourself independently and innovatively. Your energy is directed towards social change and unconventional approaches.",
+                    "Pisces": "You assert yourself passively and compassionately. Your energy is often directed towards helping others or spiritual pursuits."
+                },
+                "Rising": { // Rising sign interpretations
+                    "Aries": "You appear energetic, pioneering, and direct. Others see you as assertive and courageous.",
+                    "Taurus": "You appear calm, grounded, and stable. Others see you as dependable and sensual.",
+                    "Gemini": "You appear communicative, curious, and adaptable. Others see you as witty and versatile.",
+                    "Cancer": "You appear nurturing, sensitive, and protective. Others see you as empathetic and home-loving.",
+                    "Leo": "You appear confident, creative, and charismatic. Others see you as warm and a natural leader.",
+                    "Virgo": "You appear practical, analytical, and modest. Others see you as helpful and detail-oriented.",
+                    "Libra": "You appear charming, diplomatic, and graceful. Others see you as balanced and relationship-oriented.",
+                    "Scorpio": "You appear intense, mysterious, and powerful. Others see you as deep and transformative.",
+                    "Sagittarius": "You appear optimistic, adventurous, and philosophical. Others see you as free-spirited and enthusiastic.",
+                    "Capricorn": "You appear disciplined, responsible, and serious. Others see you as ambitious and capable.",
+                    "Aquarius": "You appear independent, original, and intellectual. Others see you as unique and humanitarian.",
+                    "Pisces": "You appear compassionate, dreamy, and sensitive. Others see you as empathetic and artistic."
+                }
+            };
+
+            // Function to get interpretation
+            function getInterpretation(planetName, sign) {
+                return interpretations[planetName] && interpretations[planetName][sign] ?
+                       interpretations[planetName][sign] :
+                       `Interpretation for ${planetName} in ${sign} is not available.`;
+            }
+
+            // Retrieve data from localStorage
+            const storedData = localStorage.getItem('astrologyReportData');
+
+            if (storedData) {
+                const reportData = JSON.parse(storedData);
+
+                // Display basic info
+                reportTitleElement.textContent = `${reportData.userName}'s Personal Planet Astrology Report`;
+                reportIntroElement.textContent = `Here's a snapshot of your core astrological influences based on your manually entered placements.`;
+
+                // Display planet signs
+                sunSignElement.textContent = reportData.personalPlanets.sun.sign;
+                moonSignElement.textContent = reportData.personalPlanets.moon.sign;
+                mercurySignElement.textContent = reportData.personalPlanets.mercury.sign;
+                venusSignElement.textContent = reportData.personalPlanets.venus.sign;
+                marsSignElement.textContent = reportData.personalPlanets.mars.sign;
+                risingSignElement.textContent = reportData.risingSign;
+
+                // Display interpretations
+                sunInterpretationElement.textContent = getInterpretation('Sun', reportData.personalPlanets.sun.sign);
+                moonInterpretationElement.textContent = getInterpretation('Moon', reportData.personalPlanets.moon.sign);
+                mercuryInterpretationElement.textContent = getInterpretation('Mercury', reportData.personalPlanets.mercury.sign);
+                venusInterpretationElement.textContent = getInterpretation('Venus', reportData.personalPlanets.venus.sign);
+                marsInterpretationElement.textContent = getInterpretation('Mars', reportData.personalPlanets.mars.sign);
+                risingInterpretationElement.textContent = getInterpretation('Rising', reportData.risingSign);
+
+            } else {
+                // If no data in localStorage, redirect back or show error
+                reportTitleElement.textContent = 'No Report Found';
+                reportIntroElement.textContent = 'Please go back to the "Generate Report" page and enter your planet details.';
+                planetPlacementsElement.style.display = 'none'; // Hide sections if no data
+                reportInterpretationsElement.style.display = 'none';
+            }
+
+            // Clear localStorage after displaying to ensure fresh report next time (optional, but good practice)
+            localStorage.removeItem('astrologyReportData');
+        });
+    </script>
+</body>
+</html>

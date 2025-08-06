@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Manual Astrology Report</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>My Astrology Hub 🌌</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="manual-report.html" class="active">Generate Report</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="container">
+            <section id="manual-report-form">
+                <h2>Generate Your Personal Planet Report</h2>
+                <p>Enter your known personal planet placements below. If you don't know them, you can use a tool like the <a href="https://www.astro.com/swisseph/swepha_e.htm" target="_blank">Swiss Ephemeris</a> to look them up.</p>
+                <form id="manualAstrologyForm" onsubmit="return validateAndSubmitManualForm(event)">
+                    <div>
+                        <label for="reportUserName">Your Name:</label>
+                        <input type="text" id="reportUserName" name="reportUserName" placeholder="e.g., Jane Doe" required>
+                    </div>
+
+                    <div>
+                        <label for="manualSunSign">Sun Sign:</label>
+                        <select id="manualSunSign" name="manualSunSign" required>
+                            <option value="">-- Select Sun Sign --</option>
+                            <option value="Aries">Aries</option>
+                            <option value="Taurus">Taurus</option>
+                            <option value="Gemini">Gemini</option>
+                            <option value="Cancer">Cancer</option>
+                            <option value="Leo">Leo</option>
+                            <option value="Virgo">Virgo</option>
+                            <option value="Libra">Libra</option>
+                            <option value="Scorpio">Scorpio</option>
+                            <option value="Sagittarius">Sagittarius</option>
+                            <option value="Capricorn">Capricorn</option>
+                            <option value="Aquarius">Aquarius</option>
+                            <option value="Pisces">Pisces</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="manualMoonSign">Moon Sign:</label>
+                        <select id="manualMoonSign" name="manualMoonSign" required>
+                            <option value="">-- Select Moon Sign --</option>
+                            <option value="Aries">Aries</option>
+                            <option value="Taurus">Taurus</option>
+                            <option value="Gemini">Gemini</option>
+                            <option value="Cancer">Cancer</option>
+                            <option value="Leo">Leo</option>
+                            <option value="Virgo">Virgo</option>
+                            <option value="Libra">Libra</option>
+                            <option value="Scorpio">Scorpio</option>
+                            <option value="Sagittarius">Sagittarius</option>
+                            <option value="Capricorn">Capricorn</option>
+                            <option value="Aquarius">Aquarius</option>
+                            <option value="Pisces">Pisces</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="manualMercurySign">Mercury Sign:</label>
+                        <select id="manualMercurySign" name="manualMercurySign" required>
+                            <option value="">-- Select Mercury Sign --</option>
+                            <option value="Aries">Aries</option>
+                            <option value="Taurus">Taurus</option>
+                            <option value="Gemini">Gemini</option>
+                            <option value="Cancer">Cancer</option>
+                            <option value="Leo">Leo</option>
+                            <option value="Virgo">Virgo</option>
+                            <option value="Libra">Libra</option>
+                            <option value="Scorpio">Scorpio</option>
+                            <option value="Sagittarius">Sagittarius</option>
+                            <option value="Capricorn">Capricorn</option>
+                            <option value="Aquarius">Aquarius</option>
+                            <option value="Pisces">Pisces</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="manualVenusSign">Venus Sign:</label>
+                        <select id="manualVenusSign" name="manualVenusSign" required>
+                            <option value="">-- Select Venus Sign --</option>
+                            <option value="Aries">Aries</option>
+                            <option value="Taurus">Taurus</option>
+                            <option value="Gemini">Gemini</option>
+                            <option value="Cancer">Cancer</option>
+                            <option value="Leo">Leo</option>
+                            <option value="Virgo">Virgo</option>
+                            <option value="Libra">Libra</option>
+                            <option value="Scorpio">Scorpio</option>
+                            <option value="Sagittarius">Sagittarius</option>
+                            <option value="Capricorn">Capricorn</option>
+                            <option value="Aquarius">Aquarius</option>
+                            <option value="Pisces">Pisces</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="manualMarsSign">Mars Sign:</label>
+                        <select id="manualMarsSign" name="manualMarsSign" required>
+                            <option value="">-- Select Mars Sign --</option>
+                            <option value="Aries">Aries</option>
+                            <option value="Taurus">Taurus</option>
+                            <option value="Gemini">Gemini</option>
+                            <option value="Cancer">Cancer</option>
+                            <option value="Leo">Leo</option>
+                            <option value="Virgo">Virgo</option>
+                            <option value="Libra">Libra</option>
+                            <option value="Scorpio">Scorpio</option>
+                            <option value="Sagittarius">Sagittarius</option>
+                            <option value="Capricorn">Capricorn</option>
+                            <option value="Aquarius">Aquarius</option>
+                            <option value="Pisces">Pisces</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="manualRisingSign">Rising Sign (Ascendant):</label>
+                        <select id="manualRisingSign" name="manualRisingSign" required>
+                            <option value="">-- Select Rising Sign --</option>
+                            <option value="Aries">Aries</option>
+                            <option value="Taurus">Taurus</option>
+                            <option value="Gemini">Gemini</option>
+                            <option value="Cancer">Cancer</option>
+                            <option value="Leo">Leo</option>
+                            <option value="Virgo">Virgo</option>
+                            <option value="Libra">Libra</option>
+                            <option value="Scorpio">Scorpio</option>
+                            <option value="Sagittarius">Sagittarius</option>
+                            <option value="Capricorn">Capricorn</option>
+                            <option value="Aquarius">Aquarius</option>
+                            <option value="Pisces">Pisces</option>
+                        </select>
+                    </div>
+
+                    <button type="submit">Generate My Manual Report</button>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 My Astrology Hub. OhB, All rights reserved.</p>
+    </footer>
+
+    <div id="customAlertOverlay" class="custom-alert-overlay">
+        <div class="custom-alert-box">
+            <h4 id="customAlertTitle">Alert!</h4>
+            <p id="customAlertMessage">This is a custom alert message.</p>
+            <button onclick="hideCustomAlert()">OK</button>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
