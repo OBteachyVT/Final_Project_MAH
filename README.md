@@ -13,29 +13,29 @@ Organizes content across multiple HTML pages (index.html, manual-report.html, re
 
 CSS Styling & Layout:
 
-  External CSS: All styling is managed in a single, external style.css file for consistent application across the entire site.
+External CSS: All styling is managed in a single, external style.css file for consistent application across the entire site.
 
-  Flexbox: Utilized for flexible layouts, particularly for navigation and content grids on the landing page.
+Flexbox: Utilized for flexible layouts, particularly for navigation and content grids on the landing page.
 
-  Responsive Design: Implements @media queries to ensure the site's layout and elements adapt gracefully to various screen sizes (desktops, tablets, and mobile devices).
+Responsive Design: Implements @media queries to ensure the site's layout and elements adapt gracefully to various screen sizes (desktops, tablets, and mobile devices).
 
-  Consistent Visual Styling: Applies a cohesive color palette, typography, and spacing for a clear and readable user interface.
+Consistent Visual Styling: Applies a cohesive color palette, typography, and spacing for a clear and readable user interface.
 JavaScript Functionality:
 
-  Functions, Arrays, Conditionals, Loops: JavaScript code is structured using functions (e.g., showCustomAlert, hideCustomAlert, validateAndSubmitManualForm, getInterpretation), processes data using arrays, and employs conditionals and loops for logic and validation.
+Functions, Arrays, Conditionals, Loops: JavaScript code is structured using functions (e.g., showCustomAlert, hideCustomAlert, validateAndSubmitManualForm, getInterpretation), processes data using arrays, and employs conditionals and loops for logic and validation.
 
-  Event Handling: Responds to user interactions, primarily form submissions (onsubmit) and button clicks (addEventListener).
+Event Handling: Responds to user interactions, primarily form submissions (onsubmit) and button clicks (addEventListener).
 
-  DOM Manipulation: Dynamically updates page content (e.g., displaying report data on report.html, showing/hiding custom alert boxes) by selecting and modifying HTML elements.
+DOM Manipulation: Dynamically updates page content (e.g., displaying report data on report.html, showing/hiding custom alert boxes) by selecting and modifying HTML elements.
 
-  Form Validation: Includes client-side JavaScript validation for all required fields in the manual report form, preventing submission of incomplete data and providing clear feedback via a custom alert box.
+Form Validation: Includes client-side JavaScript validation for all required fields in the manual report form, preventing submission of incomplete data and providing clear feedback via a custom alert box.
 
-  Data Usage (localStorage): Leverages localStorage to store user-entered planetary data from manual-report.html, allowing this data to be retrieved and displayed on report.html across page loads within the same browser session.
+Data Usage (localStorage): Leverages localStorage to store user-entered planetary data from manual-report.html, allowing this data to be retrieved and displayed on report.html across page loads within the same browser session.
 
 Project Requirements:
 
-  Functional HTML Form with JS Validation: The manual-report.html page features a complete form with robust JavaScript validation.
+Functional HTML Form with JS Validation: The manual-report.html page features a complete form with robust JavaScript validation.
 
-  Working Navigation System: A consistent navigation bar is present on all main pages, allowing intuitive movement throughout the site.
+Working Navigation System: A consistent navigation bar is present on all main pages, allowing intuitive movement throughout the site.
 
-  Image Integration & Attribution: Images are integrated into relevant pages and properly attributed on a dedicated "Image Attributions" page, linked from the footer.
+Image Integration & Attribution: Images are integrated into relevant pages and properly attributed on a dedicated "Image Attributions" page, linked from the footer.
