@@ -7,7 +7,7 @@ Implemented Features
 This project demonstrates the following key web development concepts and features:
 
 HTML Structure & Semantics:
-Uses modern HTML5 semantic elements (<header>, <nav>, <main>, <section>, <footer>, <ul>, <li>, <a>, <img>, <form>, <label>, <input>, <select>, <option>, <blockquote>, <p>, <h3>, <h2>, <h1>) for clear organization, readability, and accessibility.
+Uses modern HTML5 semantic elements for clear organization, readability, and accessibility.
 
 Organizes content across multiple HTML pages (index.html, manual-report.html, report.html, about.html, sun.html, moon.html, mercury.html, venus.html, mars.html, rising.html, attributions.html).
 
